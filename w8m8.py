@@ -66,4 +66,4 @@ if __name__ == '__main__':
 	for i in range(n):
 		crabby((i+1)/n)
 		time.sleep(0.005)
-	print()
+	print()hej
