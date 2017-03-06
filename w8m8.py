@@ -19,6 +19,32 @@ def crabby(*args, **kwargs):
 
 
 
+def loader(*args, start='[', end=' ]', marker='🦀', bg=' ',
+	length=16, progress=None, bounce=True, verbose=True):
+	
+	if bounce:
+		i = abs(length - int(time.time() * 10) % (2*length))
+	else:
+		i = int(time.time() * 10) % length
+
+	out = start + i*bg + marker + (length-i)*bg + end
+
+	if verbose and progress is not None:
+		out += ' {:.2f}%'.format(progress*100)
+	
+	print(out, *args, end='\r')
+
+def clocky(*args, **kwargs):
+	i = int(time.time() * 10) % 12
+	emoji = bytes([240, 159, 149, 144 + i]).decode('utf-8')
+	hej = 2
+	print("hej", hej)
+	print("hej", hej)
+	print("hej", hej)
+	print("hej", hej)
+	loader(*args, start='', end=' ', marker=emoji, bg='', **kwargs)
+
+
 
 if __name__ == '__main__':
 	n = 497
