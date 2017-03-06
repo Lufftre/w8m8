@@ -36,7 +36,11 @@ def loader(*args, start='[', end=' ]', marker='🦀', bg=' ',
 def clocky(*args, **kwargs):
 	i = int(time.time() * 10) % 12
 	emoji = bytes([240, 159, 149, 144 + i]).decode('utf-8')
-
+	hej = 2
+	print("hej", hej)
+	print("hej", hej)
+	print("hej", hej)
+	print("hej", hej)
 	loader(*args, start='', end=' ', marker=emoji, bg='', **kwargs)
 
 
