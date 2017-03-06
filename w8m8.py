@@ -33,7 +33,7 @@ def loader(*args, start='[', end=' ]', marker='🦀', bg=' ',
 		out += ' {:.2f}%'.format(progress*100)
 	
 	print(out, *args, end='\r')
-
+tja
 def clocky(*args, **kwargs):
 	i = int(time.time() * 10) % 12
 	emoji = bytes([240, 159, 149, 144 + i]).decode('utf-8')
@@ -66,4 +66,5 @@ if __name__ == '__main__':
 	for i in range(n):
 		crabby((i+1)/n)
 		time.sleep(0.005)
-	print()hej
+	print()
+
