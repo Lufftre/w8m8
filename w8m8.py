@@ -1,7 +1,7 @@
 import time
 
 def progressbar(progress, *args, start='[', end=']', marker='', fill='█', bg=' ',
-	length=20, verbose=True):
+	length=20, verbose=True, clear=True):
 
 	left = int(length * progress)
 	right = length - left
@@ -10,6 +10,9 @@ def progressbar(progress, *args, start='[', end=']', marker='', fill='█', bg='
 
 	if verbose:
 		out += ' {:.2f}%'.format(progress*100)
+
+	if clear:
+		out = '\033[K' + out
 
 	print(out, *args, end='\r')
 
@@ -21,7 +24,7 @@ def crabby(*args, **kwargs):
 
 def loader(*args, start='[', end=' ]', marker='🦀', bg=' ',
 	length=16, progress=None, bounce=True, verbose=True):
-	
+
 	if bounce:
 		i = abs(length - int(time.time() * 10) % (2*length))
 	else:
@@ -31,7 +34,7 @@ def loader(*args, start='[', end=' ]', marker='🦀', bg=' ',
 
 	if verbose and progress is not None:
 		out += ' {:.2f}%'.format(progress*100)
-	
+
 	print(out, *args, end='\r')
 
 def clocky(*args, **kwargs):
