@@ -1,5 +1,13 @@
 import time
 
+def iterate(iterable, *args, out='', **kwargs):
+	l = len(iterable)
+	for i,x in enumerate(iterable):
+		progressbar(i/l, out.format(x, i=i), *args, **kwargs)
+		yield x
+	progressbar(1, out.format(x), *args, **kwargs)
+	print()
+
 def progressbar(progress, *args, start='[', end=']', marker='', fill='█', bg=' ',
 	length=20, verbose=True, clear=True):
 
