@@ -3,7 +3,7 @@ setup(
   name = 'w8m8',
   packages = ['w8m8'], # this must be the same as the name above
   version = '0.1',
-  description = 'Your best mate waiting,
+  description = 'Your best mate waiting',
   author = 'Ludvig Noring',
   author_email = 'ludvig.noring@gmail.com',
   url = 'https://github.com/Lufftre/w8m8', # use the URL to the github repo
