@@ -3,7 +3,7 @@ setup(
   name = 'w8m8',
   # packages = ['w8m8'], # this must be the same as the name above
   py_modules=['w8m8'],
-  version = '0.30a',
+  version = '0.30b',
   description = 'Your best mate waiting',
   author = 'Ludvig Noring',
   author_email = 'ludvig.noring@gmail.com',
