@@ -3,12 +3,15 @@ import time
 def iterate(iterable, *args, out='', **kwargs):
 	l = len(iterable)
 	time_start = time.time()
-	last_tid_kvar = 0
+	speeds = []
 	for i,x in enumerate(iterable):
 		procent_per_sek = (i/l)/(time.time() - time_start)
-		tid_kvar = (1-(i/l))/procent_per_sek if procent_per_sek > 0 else 0
-		smooth_tid_kvar = 1+(tid_kvar + last_tid_kvar)
-		tid_text = time.strftime("%H:%M:%S", time.gmtime(smooth_tid_kvar))
+		speeds.append(procent_per_sek)
+		if len(speeds) > 10:
+			speeds.pop(0)
+		avg_speed = sum(speeds) / len(speeds)
+		tid_kvar = 1+(1-(i/l))/avg_speed if avg_speed > 0 else 0
+		tid_text = time.strftime("%H:%M:%S", time.gmtime(tid_kvar))
 
 		progressbar(i/l, out.format(x, i=i), tid_text, *args, **kwargs)
 		yield x
